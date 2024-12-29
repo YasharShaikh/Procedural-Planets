@@ -3,5 +3,6 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class ColorSetting : ScriptableObject
 {
-    public Color planetColor;
+    public Gradient gradient;
+    public Material planetMaterial;
 }
