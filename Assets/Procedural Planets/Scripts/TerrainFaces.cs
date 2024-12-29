@@ -6,10 +6,13 @@ public class TerrainFaces
     int resolution;
     Vector3 localUp;
     Vector3 axisA;
-    Vector3 axisB;
+    Vector3 axisB;  
 
-    public TerrainFaces(Mesh mesh, int resolution, Vector3 localUp)
+    ShapeGenerator shapeGenerator;
+
+    public TerrainFaces(ShapeGenerator shapeGenerator, Mesh mesh, int resolution, Vector3 localUp)
     {
+        this.shapeGenerator = shapeGenerator;
         this.mesh = mesh;
         this.resolution = resolution;
         this.localUp = localUp;
@@ -29,14 +32,12 @@ public class TerrainFaces
             for(int x = 0; x < resolution; x++)
             {
                 int i = x + y * resolution;
+                Vector2 percent = new Vector2(x, y) / (resolution - 1);
+                Vector3 pointOnUnitCube = localUp + (percent.x - .5f) * 2 * axisA + (percent.y - .5f) * 2 * axisB;
+                Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;
+                vertices[i] = shapeGenerator.CalculatePointOnPlanet(pointOnUnitSphere);
 
-                Vector2 percent = new Vector2(x,y)/(resolution - 1);
-                Vector3 pointOnUnitCube = localUp + (percent.x - 0.5f) * 2 * axisA + (percent.y - 0.5f) * 2 * axisB;
-                Vector3 pointOnUnitSphere  = pointOnUnitCube.normalized;
-
-                vertices[i] = pointOnUnitSphere;
-
-                if(x!=resolution-1 && y!=resolution-1)
+                if (x!=resolution-1 && y!=resolution-1)
                 {
                     triangles[triIndex] = i;
                     triangles[triIndex + 1] = i + resolution + 1;

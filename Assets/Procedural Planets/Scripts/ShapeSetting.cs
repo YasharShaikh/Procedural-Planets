@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class ShapeSetting : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[CreateAssetMenu()]
+public class ShapeSetting : ScriptableObject
+{
+    public float planetRadius;
+
 }
