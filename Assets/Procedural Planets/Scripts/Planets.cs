@@ -22,6 +22,11 @@ public class Planets : MonoBehaviour
 
     private void Initialize()
     {
+        if (colorSetting == null)
+        {
+            Debug.LogError("ColorSetting is not assigned!");
+            return;
+        }
         shapeGenerator.UpdateSettings(shapeSetting);
         colorGenerator.UpdateSettings(colorSetting);
 
@@ -92,5 +97,12 @@ public class Planets : MonoBehaviour
     void GenerateColors()
     {
         colorGenerator.UpdateColors();
+        for (int i = 0; i < 6; i++)
+        {
+            if (meshFilters[i].gameObject.activeSelf)
+            {
+                terrainFaces[i].UpdateUV(colorGenerator);
+            }
+        }
     }
 }

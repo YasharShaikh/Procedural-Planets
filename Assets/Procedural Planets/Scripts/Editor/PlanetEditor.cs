@@ -16,7 +16,7 @@ public class PlanetEditor : Editor
             if (check.changed)
                 planets.GeneratePlanet();
         }
-        if (GUILayout.Button("Generate Planet")) ;
+        if (GUILayout.Button("Generate Planet")) 
         {
             planets.GeneratePlanet();
         }
