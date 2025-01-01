@@ -20,7 +20,7 @@ A Unity-based project to generate breathtaking procedural planets, combining dyn
 ----------
 💡**Objective**: Explore and understand procedural generation techniques and their application in creating visually stunning 3D planets.
 
-![Flappy Bird 2024-11-13 13-39-36 (1)]()
+![Procedural Planets](https://github.com/user-attachments/assets/859b9b88-10f0-4db3-9167-df22018b2253)
 
 
 **Gameplay 🎮**
